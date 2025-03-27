@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
-import userRoutes from './routes/userRoutes'
 import dotenv from 'dotenv';
+
+import userRoutes from './routes/userRoutes'
+import youtubeRoutes from './routes/youtubeRoutes';
 
 dotenv.config();
 
@@ -12,6 +14,7 @@ app.use(express.json());
 
 //ROUTES
 app.use('/api/v1' , userRoutes);
+app.use('/api/v1/songsDownload', youtubeRoutes);
 
 //SERVER START
 app.listen(PORT, ()=>{
